@@ -1,0 +1,24 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Addtocar">
+    <insert id="inserttocar" parameterType="shopcar">
+        INSERT INTO shopcar (sid,gsnum,belong) VALUES (#{sid},#{gsnum},#{belong})
+    </insert>
+    <select id="showcar" parameterType="shopcar" resultType="shopcar">
+        SELECT *FROM shopcar WHERE belong=#{belong}
+    </select>
+    <select id="checksame" parameterType="shopcar" resultType="shopcar">
+        SELECT *FROM shopcar WHERE sid=#{sid} AND belong=#{belong}
+    </select>
+    <update id="updatecar" parameterType="shopcar">
+        UPDATE shopcar SET gsnum=#{gsnum} WHERE carid=#{carid}
+    </update>
+    <delete id="deletegoods" parameterType="shopcar">
+        DELETE FROM shopcar WHERE sid=#{sid} AND belong=#{belong}
+    </delete>
+
+    <select id="selectnumfromcar" parameterType="shopcar" resultType="int">
+        SELECT COUNT(*) FROM shopcar WHERE belong=#{belong}
+    </select>
+
+</mapper>

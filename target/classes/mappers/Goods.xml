@@ -1,0 +1,9 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Goodsearch">
+    <select id="selectgidbyname" parameterType="goods" resultType="goods">
+        SELECT *FROM goods WHERE gname like concat('%',#{gname},'%')
+    </select>
+
+
+</mapper>

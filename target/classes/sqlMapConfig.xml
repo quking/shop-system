@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 配置设置 -->
+    <settings>
+        <!-- 配置全局性 cache 的 ( 开 / 关) default:true -->
+        <setting name="cacheEnabled" value="true"/>
+
+        <!-- 是否使用 懒加载 关联对象  同 hibernate中的延迟加载 一样  default:true -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+
+        <!-- [当对象使用延迟加载时 属性的加载取决于能被引用到的那些延迟属性,否则,按需加载(需要的是时候才去加载)] -->
+        <setting name="aggressiveLazyLoading" value="true"/>
+
+        <!--允许JDBC 生成主键。需要驱动器支持。如果设为了true，这个设置将强制使用被生成的主键，有一些驱动器不兼容不过仍然可以执行。  default:false-->
+        <setting name="useGeneratedKeys" value="false"/>
+
+        <!--指定 MyBatis 如何自动映射 数据基表的列 NONE：不隐射　PARTIAL:部分  FULL:全部-->
+        <setting name="autoMappingBehavior" value="PARTIAL"/>
+
+        <!-- 这是默认的执行类型
+            SIMPLE :简单
+            REUSE:执行器可能重复使用prepared statements 语句
+            BATCH:执行器可以重复执行语句和批量更新
+        -->
+        <setting name="defaultExecutorType" value="SIMPLE"/>
+
+        <!-- 设置驱动等待数据响应的超时数  默认没有设置-->
+        <setting name="defaultStatementTimeout" value="25000"/>
+
+        <!-- [是否启用 行内嵌套语句  defaut:false] -->
+        <setting name="safeRowBoundsEnabled" value="false"/>
+
+
+    </settings>
+    <!-- 别名 -->
+<typeAliases>
+    <typeAlias type="com.pojo.Users" alias="users"/>
+    <typeAlias type="com.pojo.Goods" alias="goods"/>
+    <typeAlias type="com.pojo.Shopcar" alias="shopcar"/>
+    <typeAlias type="com.pojo.Collections" alias="collections"/>
+    <typeAlias type="com.pojo.Orders" alias="orders"/>
+</typeAliases>
+</configuration>

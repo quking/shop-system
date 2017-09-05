@@ -1,0 +1,43 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserRegister">
+    <insert id="userregister" parameterType="users">
+INSERT INTO users(email,upassword)VALUES (#{email},#{upassword});
+    </insert>
+    <select id="loginb" parameterType="users" resultType="users">
+        SELECT *from users WHERE username=#{username} AND upassword=#{upassword}
+    </select>
+    <select id="loginb2" parameterType="users" resultType="users">
+        SELECT *from users WHERE email=#{email} AND upassword=#{upassword}
+    </select>
+    <select id="selectidbtpsw" parameterType="users" resultType="users">
+        SELECT userid FROM users WHERE email=#{email}
+    </select>
+    <update id="updatehalf" parameterType="users">
+        UPDATE users SET username=#{username},realname=#{realname},phonenumber=#{phonenumber} WHERE userid=#{userid}
+    </update>
+    <update id="updatepsw" parameterType="users">
+        UPDATE users SET upassword=#{upassword} WHERE userid=#{userid}
+    </update>
+    <update id="updateemail" parameterType="users">
+        UPDATE users SET email=#{email} WHERE userid=#{userid}
+    </update>
+    <update id="realnameconfirm" parameterType="users">
+        UPDATE users SET realname=#{realname},idcard=#{idcard} WHERE userid=#{userid}
+    </update>
+    <update id="addressmana" parameterType="users">
+        UPDATE users SET reciever=#{reciever},address=#{address},concreadd=#{concreadd} WHERE userid=#{userid}
+    </update>
+    <update id="recievermsg" parameterType="users">
+        UPDATE users SET reciever=#{reciever},address=#{address},concreadd=#{concreadd},phonenumber=#{phonenumber} WHERE userid=#{userid}
+    </update>
+    <select id="selectall" resultType="users" parameterType="users">
+        SELECT *FROM users WHERE userid=#{userid}
+    </select>
+    <select id="checkmailregister" parameterType="users" resultType="users">
+        SELECT *FROM users WHERE email=#{email}
+    </select>
+    <update id="findbackpsw" parameterType="users">
+        UPDATE users SET upassword=#{upassword} WHERE email=#{email}
+    </update>
+</mapper>

@@ -1,0 +1,16 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Addcollection">
+    <insert id="addcollect" parameterType="collections">
+      INSERT INTO collection (belong,cgid) VALUES (#{belong},#{cgid})
+    </insert>
+    <select id="selectsame" parameterType="collections" resultType="collections">
+        SELECT *FROM collection WHERE belong=#{belong} AND cgid=#{cgid}
+    </select>
+    <delete id="deletecollect" parameterType="collections">
+        DELETE FROM collection WHERE belong=#{belong} AND cgid=#{cgid}
+    </delete>
+    <select id="ergodiccollect" parameterType="collections" resultType="collections">
+        SELECT *FROM collection WHERE belong=#{belong}
+    </select>
+</mapper>
